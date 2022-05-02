@@ -1,21 +1,18 @@
 import Link from "next/link";
-import styles from "./navbar.module.css";
+import { ButtonGroup, Button } from "@mui/material";
 
 export default function Navbar() {
   return (
-    <nav className={styles.nav}>
+    <ButtonGroup variant="contained" aria-label="outlined primary button group">
       <Link href="/">
-        <a>Home</a>
+        <Button>Home</Button>
       </Link>
       <Link href="/events">
-        <a>Events</a>
-      </Link>
-      <Link href="/about">
-        <a>About</a>
+        <Button>Events</Button>
       </Link>
       <Link href="/contact">
-        <a>Contact</a>
+        <Button>Contact</Button>
       </Link>
-    </nav>
+    </ButtonGroup>
   );
 }
