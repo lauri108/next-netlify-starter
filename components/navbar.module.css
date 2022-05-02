@@ -1,8 +1,0 @@
-.nav {
-  display: flex;
-  flex-direction: row;
-  width: 250px;
-  background-color: #fafafa;
-  padding: 32px;
-  border-right: 1px solid #eaeaea;
-}
