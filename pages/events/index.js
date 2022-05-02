@@ -1,9 +1,13 @@
 import Header from "@components/Header";
+import EventList from "@components/events/event-list";
+import { getAllEvents } from "../../dummy-data";
+
 function AllEventsPage() {
+  const events = getAllEvents();
   return (
     <main>
       <Header title="Events" />
-      <p className="description">Events list here</p>
+      <EventList items={events} />
     </main>
   );
 }
