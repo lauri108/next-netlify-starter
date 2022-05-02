@@ -33,4 +33,4 @@ function Application(props) {
   );
 }
 
-export default Application
+export default Application;
