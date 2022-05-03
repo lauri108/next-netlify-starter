@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import { Grid } from "@mui/material";
 import { useRouter } from "next/router";
+import { makeStyles } from "@mui/material/styles";
 
 function EventItem(props) {
   const { title, image, date, location, id } = props;
@@ -19,14 +20,33 @@ function EventItem(props) {
   });
   const formattedAddress = location.replace(",", "\n");
   const eventLink = `/events/${id}`;
+
+  const buttonStyle = {
+    ":hover": { background: "#eee" },
+  };
+
   function goToEventDetailPage() {
     router.push(eventLink);
   }
   return (
-    <Card sx={{ maxWidth: 260, minHeight: 340 }} onClick={goToEventDetailPage}>
-      <CardMedia component="img" height="140" image={`/${image}`} alt={title} />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+    <Card
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        flexDirection: "column",
+        maxWidth: 260,
+        ":hover": { cursor: "pointer", background: "#f5f5f5", borderColor: "#575757" },
+      }}
+    >
+      <CardMedia
+        component="img"
+        height="140"
+        image={`/${image}`}
+        alt={title}
+        onClick={goToEventDetailPage}
+      />
+      <CardContent onClick={goToEventDetailPage} sx={{ height: "100%" }}>
+        <Typography gutterBottom variant="h6" component="div">
           {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -36,10 +56,14 @@ function EventItem(props) {
           <address>{formattedAddress}</address>
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
+      <CardActions sx={{ borderTop: "1px #eee solid" }}>
+        <Button sx={buttonStyle} size="small">
+          Share
+        </Button>
         <Link href={eventLink}>
-          <Button size="small">Learn More</Button>
+          <Button sx={buttonStyle} size="small">
+            Learn More
+          </Button>
         </Link>
       </CardActions>
     </Card>
