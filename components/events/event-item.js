@@ -9,6 +9,7 @@ import Link from "next/link";
 import { Grid } from "@mui/material";
 import { useRouter } from "next/router";
 import { makeStyles } from "@mui/material/styles";
+import { CalendarMonth, LocationOn, EventNote, Share } from "@mui/icons-material";
 
 function EventItem(props) {
   const { title, image, date, location, id } = props;
@@ -35,7 +36,8 @@ function EventItem(props) {
         justifyContent: "space-between",
         flexDirection: "column",
         maxWidth: 260,
-        ":hover": { cursor: "pointer", background: "#f5f5f5", borderColor: "#575757" },
+        lineHeight: 0,
+        ":hover": { background: "#f5f5f5", boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.2)' }
       }}
     >
       <CardMedia
@@ -44,25 +46,42 @@ function EventItem(props) {
         image={`/${image}`}
         alt={title}
         onClick={goToEventDetailPage}
+        sx={{ ":hover": { cursor: "pointer" } }}
       />
-      <CardContent onClick={goToEventDetailPage} sx={{ height: "100%" }}>
-        <Typography gutterBottom variant="h6" component="div">
+      <CardContent onClick={goToEventDetailPage} sx={{ height: "100%", ":hover": { cursor: "pointer", background: "#f5f5f5", borderColor: "#575757" }, }}>
+        <Typography gutterBottom variant="h6" component="div" sx={{ lineHeight: 1, minHeight: "2.5em" }}>
           {title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          <time>{humanDate}</time>
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          <address>{formattedAddress}</address>
-        </Typography>
+        <Grid container alignItems="center" spacing={1}>
+          <Grid item key="dateicon">
+            <CalendarMonth />
+          </Grid>
+          <Grid item key="date">
+            <Typography variant="body2" color="text.secondary">
+              <time>{humanDate}</time>
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid container alignItems="top" flexWrap="nowrap" spacing={1}>
+          <Grid item key="locationicon">
+            <LocationOn />
+          </Grid>
+          <Grid item key="location">
+            <Typography variant="body2" color="text.secondary">
+              <address>{formattedAddress}</address>
+            </Typography>
+          </Grid>
+        </Grid>
       </CardContent>
       <CardActions sx={{ borderTop: "1px #eee solid" }}>
         <Button sx={buttonStyle} size="small">
+          <Share />
           Share
         </Button>
         <Link href={eventLink}>
           <Button sx={buttonStyle} size="small">
-            Learn More
+            <EventNote />
+            Details
           </Button>
         </Link>
       </CardActions>
