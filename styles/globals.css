@@ -6,6 +6,10 @@ body {
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+body {
+  background-image: linear-gradient(white, #ccc 95%);
+}
+
 * {
   box-sizing: border-box;
 }

@@ -1,0 +1,50 @@
+
+.image {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid white;
+}
+
+.image img {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+}
+
+.grid {
+  padding: 3em 0;
+  display: flex;
+  flex-wrap: nowrap;
+  /* background-image: linear-gradient(white, #ccc 95%); */
+}
+
+.eventInfo {
+  max-width: 60vw;
+}
+
+.eventDescription {
+  font-size: large;
+}
+
+.eventIcon {
+  font-size: 2em;
+}
+.eventDetails {
+  font-size: 1.5em;
+}
+
+@media (min-width: 768px) {
+
+  .image {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .image img {
+    width: 15rem;
+    height: 15rem;
+  }
+
+}
