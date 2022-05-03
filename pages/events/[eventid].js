@@ -6,7 +6,7 @@ import EventDetail from '@components/event-detail/event-detail';
 
 function EventDetailsPage() {
   const router = useRouter()
-  const eventId = router.query.eventId
+  const eventId = router.query.eventid
   const event = getEventById(eventId)
   if(!event) {
     return <p>No event found!</p>
