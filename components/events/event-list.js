@@ -4,9 +4,9 @@ import EventItem from "./event-item";
 function EventList(props) {
   const { items } = props;
   return (
-    <Grid container spacing={4}>
+    <Grid container spacing={4} alignItems="stretch">
       {items.map((event) => (
-        <Grid item>
+        <Grid item style={{ display: "flex" }}>
           <EventItem
             key={event.id}
             id={event.id}

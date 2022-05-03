@@ -1,5 +1,7 @@
+import { useRouter } from 'next/router'
 import Header from "@components/Header";
 function EventDetailsPage() {
+  const router = useRouter()
   return (
     <main>
       <Header title="Event detail" />
