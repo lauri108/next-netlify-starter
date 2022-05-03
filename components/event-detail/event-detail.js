@@ -31,9 +31,36 @@ function EventDetail(props) {
         </Typography>
         <Card>
           <CardContent>
-            <Typography variant="body2" color="text.secondary">
-              {description}
-            </Typography>
+            <Grid container>
+              <Grid item>
+                <CalendarMonth className={classes.eventIcon} />
+              </Grid>
+              <Grid item>
+                <Typography variant="body1" color="text.primary" className={classes.eventDetails}>
+                  {humanReadableDate}
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid container>
+              <Grid item>
+                <LocationOn className={classes.eventIcon} />
+              </Grid>
+              <Grid item>
+                <Typography variant="body1" color="text.primary" className={classes.eventDetails}>
+                  {addressText}
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid container sx={{flexWrap: 'nowrap'}}>
+              <Grid item>
+                <EventNote className={classes.eventIcon} />
+              </Grid>
+              <Grid item>
+                <Typography variant="body1" color="text.secondary" className={classes.eventDescription}>
+                  {description}
+                </Typography>
+              </Grid>
+            </Grid>
           </CardContent>
         </Card>
       </Grid>
