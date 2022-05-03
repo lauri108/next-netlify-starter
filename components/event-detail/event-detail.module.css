@@ -15,19 +15,25 @@
 
 .grid {
   padding: 3em 0;
-  background-image: linear-gradient(white, #ccc 95%);
+  display: flex;
+  flex-wrap: nowrap;
+  /* background-image: linear-gradient(white, #ccc 95%); */
+}
+
+.eventInfo {
+  max-width: 60vw;
 }
 
 @media (min-width: 768px) {
 
   .image {
-    width: 20rem;
-    height: 20rem;
+    width: 15rem;
+    height: 15rem;
   }
 
   .image img {
-    width: 20rem;
-    height: 20rem;
+    width: 15rem;
+    height: 15rem;
   }
 
 }

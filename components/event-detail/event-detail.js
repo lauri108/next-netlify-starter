@@ -25,7 +25,7 @@ function EventDetail(props) {
           <img src={`/${image}`} alt={imageAlt} />
         </div>
       </Grid>
-      <Grid item>
+      <Grid item className={classes.eventInfo}>
         <Typography gutterBottom variant="h3" component="div">
           {title}
         </Typography>

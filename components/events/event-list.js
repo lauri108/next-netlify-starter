@@ -5,8 +5,8 @@ function EventList(props) {
   const { items } = props;
   return (
     <Grid container spacing={4} alignItems="stretch">
-      {items.map((event) => (
-        <Grid item style={{ display: "flex" }}>
+      {items.map((event, index) => (
+        <Grid item key={event.id} style={{ display: "flex" }}>
           <EventItem
             key={event.id}
             id={event.id}

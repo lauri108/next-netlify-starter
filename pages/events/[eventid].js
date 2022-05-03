@@ -13,9 +13,7 @@ function EventDetailsPage() {
   }
 
   return (
-    <main>
       <EventDetail event={event} />
-    </main>
   );
 }
 

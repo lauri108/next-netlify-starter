@@ -8,7 +8,6 @@ import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import { Grid } from "@mui/material";
 import { useRouter } from "next/router";
-import { makeStyles } from "@mui/material/styles";
 import { CalendarMonth, LocationOn, EventNote, Share } from "@mui/icons-material";
 
 function EventItem(props) {
