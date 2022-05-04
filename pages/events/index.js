@@ -11,7 +11,7 @@ function AllEventsPage(props) {
   );
 }
 
-export async function getServerSideProps(){
+export async function getStaticProps(){
   const allEvents = await getAllEvents();
   return {
     props: {

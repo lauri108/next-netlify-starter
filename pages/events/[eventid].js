@@ -14,7 +14,7 @@ export default function EventDetailsPage(props) {
   );
 }
 
-export async function getServerSideProps(context){
+export async function getStaticProps(context){
   const eventId = context.params.eventid
   const event = await getEventById(eventId);
   return {
@@ -24,12 +24,12 @@ export async function getServerSideProps(context){
   }
 }
 
-// export async function getStaticPaths(){
-//   const events = await getAllEvents();
-//   const paths = events.map(event => ({params: {eventId: event.id}}))
-//   return {
-//     paths: paths,
-//     fallback: false
-//   }
-// }
+export async function getStaticPaths(){
+  const events = await getAllEvents();
+  const paths = events.map(event => ({params: {eventId: event.id}}))
+  return {
+    paths: paths,
+    fallback: false
+  }
+}
 
