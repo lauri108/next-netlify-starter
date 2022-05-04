@@ -1,20 +1,35 @@
 import { useRouter } from 'next/router'
 import Header from "@components/Header";
-import {getEventById} from '../../dummy-data'
+import {getEventById, getAllEvents} from '@helpers/api-util'
 import EventDetail from '@components/event-detail/event-detail';
 
 
-function EventDetailsPage() {
-  const router = useRouter()
-  const eventId = router.query.eventid
-  const event = getEventById(eventId)
-  if(!event) {
+export default function EventDetailsPage(props) {
+  if(!props.foundEvent) {
     return <p>No event found!</p>
   }
 
   return (
-      <EventDetail event={event} />
+      <EventDetail event={props.foundEvent} />
   );
 }
 
-export default EventDetailsPage;
+export async function getServerSideProps(context){
+  const eventId = context.params.eventid
+  const event = await getEventById(eventId);
+  return {
+    props: {
+      foundEvent: event
+    }
+  }
+}
+
+// export async function getStaticPaths(){
+//   const events = await getAllEvents();
+//   const paths = events.map(event => ({params: {eventId: event.id}}))
+//   return {
+//     paths: paths,
+//     fallback: false
+//   }
+// }
+
