@@ -26,7 +26,7 @@ export async function getStaticProps(context){
 
 export async function getStaticPaths(){
   const events = await getAllEvents();
-  const paths = events.map(event => ({params: {eventId: event.id}}))
+  const paths = events.map(event => ({params: {eventid: event.id}}))
   return {
     paths: paths,
     fallback: false
