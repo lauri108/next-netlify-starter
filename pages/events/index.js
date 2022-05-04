@@ -1,15 +1,23 @@
 import Header from "@components/Header";
 import EventList from "@components/events/event-list";
-import { getAllEvents } from "../../dummy-data";
+import { getAllEvents } from "@helpers/api-util";
 
-function AllEventsPage() {
-  const events = getAllEvents();
+function AllEventsPage(props) {
   return (
     <main>
       <Header title="Events" />
-      <EventList items={events} />
+      <EventList items={props.events} />
     </main>
   );
+}
+
+export async function getServerSideProps(){
+  const allEvents = await getAllEvents();
+  return {
+    props: {
+      events: allEvents
+    }
+  }
 }
 
 export default AllEventsPage;
